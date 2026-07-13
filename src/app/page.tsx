@@ -13,10 +13,12 @@ const heroVideos = [
   '/videos/IMG_4167.webm',
 ];
 
-const heroContent = {
-  background: '/wallpapers/background.jpg',
-  title: 'Diario de viaje',
-  scrollToExpand: 'Desplazate para expandir',
+const heroBackground = '/wallpapers/background.jpg';
+
+const heroText: Record<Lang, { title: string; scroll: string }> = {
+  es: { title: 'Diario de viaje', scroll: 'Desplazate para expandir' },
+  en: { title: 'Travel diary', scroll: 'Scroll to expand' },
+  pt: { title: 'Diário de viagem', scroll: 'Role para expandir' },
 };
 
 // Pill background cycles through these on every word change. Full class
@@ -110,16 +112,16 @@ export default function Home() {
       <button
         type='button'
         onClick={cycleLang}
-        className='fixed right-8 top-8 z-50 px-2 py-1 text-lg font-bold uppercase tracking-wide text-white mix-blend-difference transition-colors hover:text-neutral-400'
+        className='fixed right-12 top-4 z-50 px-2 py-1 text-lg font-bold uppercase tracking-wide text-white mix-blend-difference transition-colors hover:text-neutral-400'
       >
         {lang}
       </button>
       <ScrollExpandMedia
         mediaType='video'
         mediaSrc={heroVideos}
-        bgImageSrc={heroContent.background}
-        title={heroContent.title}
-        scrollToExpand={heroContent.scrollToExpand}
+        bgImageSrc={heroBackground}
+        title={heroText[lang].title}
+        scrollToExpand={heroText[lang].scroll}
         textBlend
       >
         <div data-snap-section>
