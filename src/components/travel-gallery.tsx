@@ -670,7 +670,7 @@ function GalleryItem({
             index % 2 === 0 ? 'rotate-2' : '-rotate-2'
           }`}
         >
-          <div className='w-40 h-40 sm:w-64 sm:h-64 md:w-[22rem] md:h-[22rem] lg:w-96 lg:h-96 overflow-hidden'>
+          <div className='w-56 h-56 sm:w-72 sm:h-72 md:w-[22rem] md:h-[22rem] lg:w-96 lg:h-96 overflow-hidden'>
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
               src={image}
