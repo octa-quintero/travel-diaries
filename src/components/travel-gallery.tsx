@@ -662,9 +662,9 @@ function GalleryItem({
       ref={ref}
       className='h-full w-full md:w-1/2 flex justify-center items-start md:items-center snap-center'
     >
-      {/* Mobile: photo sits at the bottom of the top 40%, close to the text.
+      {/* Mobile: photo sits lower, near the middle of the screen.
           Desktop: photo centered in its left half. */}
-      <div className='h-[40vh] md:h-auto flex items-end md:items-center justify-center pb-2 md:pb-0'>
+      <div className='h-[50vh] md:h-auto flex items-end md:items-center justify-center pb-2 md:pb-0'>
         <div
           className={`bg-white p-2.5 sm:p-4 shadow-2xl rounded-sm ${
             index % 2 === 0 ? 'rotate-2' : '-rotate-2'
@@ -706,7 +706,7 @@ export function TravelGallery({ lang }: { lang: Lang }) {
         <div className='sticky top-0 h-screen w-full flex items-end justify-center md:items-center md:justify-end text-black dark:text-white'>
           {/* Mobile: text fills the bottom 60%, starting near the photo.
               Desktop: text sits in the right half, centered. */}
-          <div className='h-[60vh] md:h-auto w-full md:w-1/2 flex flex-col items-center justify-start md:justify-center pt-3 md:pt-0 px-6 md:px-10'>
+          <div className='h-[50vh] md:h-auto w-full md:w-1/2 flex flex-col items-center justify-start md:justify-center pt-3 md:pt-0 px-6 md:px-10'>
             <TextRotate
               ref={textRotateRef}
               texts={slides.map((slide) => slide.title)}
