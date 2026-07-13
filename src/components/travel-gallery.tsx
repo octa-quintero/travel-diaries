@@ -660,24 +660,28 @@ function GalleryItem({
   return (
     <div
       ref={ref}
-      className='h-full w-1/2 flex justify-center items-center snap-center'
+      className='h-full w-full md:w-1/2 flex justify-center items-start md:items-center snap-center'
     >
-      <div
-        className={`bg-white p-3 sm:p-4 shadow-2xl rounded-sm ${
-          index % 2 === 0 ? 'rotate-2' : '-rotate-2'
-        }`}
-      >
-        <div className='w-52 h-52 sm:w-72 sm:h-72 md:w-[22rem] md:h-[22rem] lg:w-96 lg:h-96 overflow-hidden'>
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img
-            src={image}
-            alt={`${caption} (${index + 1})`}
-            className='w-full h-full object-cover'
-          />
+      {/* Mobile: photo sits at the bottom of the top 40%, close to the text.
+          Desktop: photo centered in its left half. */}
+      <div className='h-[40vh] md:h-auto flex items-end md:items-center justify-center pb-2 md:pb-0'>
+        <div
+          className={`bg-white p-2.5 sm:p-4 shadow-2xl rounded-sm ${
+            index % 2 === 0 ? 'rotate-2' : '-rotate-2'
+          }`}
+        >
+          <div className='w-40 h-40 sm:w-64 sm:h-64 md:w-[22rem] md:h-[22rem] lg:w-96 lg:h-96 overflow-hidden'>
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+              src={image}
+              alt={`${caption} (${index + 1})`}
+              className='w-full h-full object-cover'
+            />
+          </div>
+          <p className='font-hand mt-2 mb-0.5 sm:mt-4 text-center text-neutral-700 text-base sm:text-2xl'>
+            {caption}
+          </p>
         </div>
-        <p className='font-hand mt-3 mb-1 sm:mt-4 text-center text-neutral-700 text-lg sm:text-2xl'>
-          {caption}
-        </p>
       </div>
     </div>
   );
@@ -699,8 +703,10 @@ export function TravelGallery({ lang }: { lang: Lang }) {
   return (
     <div className='w-full h-screen flex'>
       <div className='w-full h-full relative'>
-        <div className='sticky top-0 h-screen w-full flex items-center justify-end text-black dark:text-white'>
-          <div className='w-1/2 flex flex-col items-center px-4 md:px-10'>
+        <div className='sticky top-0 h-screen w-full flex items-end justify-center md:items-center md:justify-end text-black dark:text-white'>
+          {/* Mobile: text fills the bottom 60%, starting near the photo.
+              Desktop: text sits in the right half, centered. */}
+          <div className='h-[60vh] md:h-auto w-full md:w-1/2 flex flex-col items-center justify-start md:justify-center pt-3 md:pt-0 px-6 md:px-10'>
             <TextRotate
               ref={textRotateRef}
               texts={slides.map((slide) => slide.title)}
