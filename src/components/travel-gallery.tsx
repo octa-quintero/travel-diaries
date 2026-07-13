@@ -696,13 +696,6 @@ export function TravelGallery({ lang }: { lang: Lang }) {
     }
   }, []);
 
-  // Their own names get the handwritten Amsterdam font, like a signature;
-  // every other title stays in the typewriter font
-  const activeTitle = slides[activeIndex]?.title;
-  const isPersonName =
-    activeTitle === content[lang].matias.title ||
-    activeTitle === content[lang].lisandra.title;
-
   return (
     <div className='w-full h-screen flex'>
       <div className='w-full h-full relative'>
@@ -711,11 +704,7 @@ export function TravelGallery({ lang }: { lang: Lang }) {
             <TextRotate
               ref={textRotateRef}
               texts={slides.map((slide) => slide.title)}
-              mainClassName={`w-full justify-center flex pt-2 ${
-                isPersonName
-                  ? 'font-amsterdam text-4xl sm:text-6xl md:text-7xl'
-                  : 'font-hand font-bold text-2xl sm:text-4xl md:text-5xl'
-              }`}
+              mainClassName='font-hand text-2xl sm:text-4xl md:text-5xl font-bold w-full justify-center flex pt-2'
               splitLevelClassName='overflow-hidden pb-2'
               staggerFrom={'first'}
               animatePresenceMode='wait'
