@@ -516,7 +516,7 @@ interface Slide {
 }
 
 const profileBody = (profile: ProfileContent): ReactNode => (
-  <div className='space-y-3'>
+  <div className='space-y-2 md:space-y-3'>
     <p className='text-center text-neutral-500 dark:text-neutral-400'>
       {profile.meta}
     </p>
@@ -530,9 +530,9 @@ const profileBody = (profile: ProfileContent): ReactNode => (
 );
 
 const labeledListBody = (items: LabeledItem[], intro?: string): ReactNode => (
-  <div className='space-y-3'>
+  <div className='space-y-2 md:space-y-3'>
     {intro && <p>{intro}</p>}
-    <ul className='space-y-2'>
+    <ul className='space-y-1.5 md:space-y-2'>
       {items.map(({ label, text }) => (
         <li key={label}>
           <span className='font-semibold'>{label}: </span>
@@ -664,7 +664,7 @@ function GalleryItem({
     >
       {/* Mobile: photo sits lower, near the middle of the screen.
           Desktop: photo centered in its left half. */}
-      <div className='h-[50vh] md:h-auto flex items-end md:items-center justify-center pb-2 md:pb-0'>
+      <div className='h-[47vh] md:h-auto flex items-end md:items-center justify-center pb-2 md:pb-0'>
         <div
           className={`bg-white p-2.5 sm:p-4 shadow-2xl rounded-sm ${
             index % 2 === 0 ? 'rotate-2' : '-rotate-2'
@@ -706,11 +706,11 @@ export function TravelGallery({ lang }: { lang: Lang }) {
         <div className='sticky top-0 h-screen w-full flex items-end justify-center md:items-center md:justify-end text-black dark:text-white'>
           {/* Mobile: text fills the bottom 60%, starting near the photo.
               Desktop: text sits in the right half, centered. */}
-          <div className='h-[50vh] md:h-auto w-full md:w-1/2 flex flex-col items-center justify-start md:justify-center pt-3 md:pt-0 px-6 md:px-10'>
+          <div className='h-[53vh] md:h-auto w-full md:w-1/2 flex flex-col items-center justify-start md:justify-center pt-2 md:pt-0 px-6 md:px-10'>
             <TextRotate
               ref={textRotateRef}
               texts={slides.map((slide) => slide.title)}
-              mainClassName='font-hand text-2xl sm:text-4xl md:text-5xl font-bold w-full justify-center flex pt-2'
+              mainClassName='font-hand text-xl sm:text-4xl md:text-5xl font-bold w-full justify-center flex pt-0 sm:pt-2'
               splitLevelClassName='overflow-hidden pb-2'
               staggerFrom={'first'}
               animatePresenceMode='wait'
@@ -729,7 +729,7 @@ export function TravelGallery({ lang }: { lang: Lang }) {
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, y: -24 }}
                 transition={{ duration: 0.4 }}
-                className='mt-4 md:mt-6 w-full max-w-md text-xs sm:text-sm md:text-base text-neutral-700 dark:text-neutral-300'
+                className='mt-2 md:mt-6 w-full max-w-md text-xs sm:text-sm md:text-base leading-snug md:leading-normal text-neutral-700 dark:text-neutral-300'
               >
                 {slides[activeIndex].body}
               </motion.div>
